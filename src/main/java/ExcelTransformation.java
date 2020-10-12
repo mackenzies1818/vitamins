@@ -14,6 +14,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.util.POILogger;
 import org.apache.poi.openxml4j.opc.PackageRelationshipCollection;
 
+/*
+The following class is writing the data to an excel sheet defined as vitamin.xlsx
+*/
+
 public class ExcelTransformation {
 
     public static List<String> headers = Arrays.asList("Item", "Amount", "Nutrients", "Nutrient Amount" ,  "% Daily Recc.");
@@ -37,6 +41,7 @@ public class ExcelTransformation {
 
     }
 
+    //created header row defined by constant headers
     private static void createHeader(XSSFSheet sheet) {
         XSSFRow row = sheet.createRow(0);
         int i =0;
@@ -47,6 +52,7 @@ public class ExcelTransformation {
 
     }
 
+    //this function gets invoked for each nutrient passed in
     public static int createRow(int currentRow, XSSFSheet sheet,Map<String,Object> food){
         try {
             boolean firstRow = true;
@@ -86,6 +92,7 @@ public class ExcelTransformation {
         }
         return currentRow;
     }
+
 
     private static Map<String,Object> findNutrient(List<Map<String,Object>> foodNutrients, String nutrient) {
         for (Map<String, Object> map : foodNutrients)

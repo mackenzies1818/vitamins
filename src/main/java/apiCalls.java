@@ -14,6 +14,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
+/*
+This class makes an API request, currently supports HTTP GET and POST
+*/
+
 public class apiCalls {
 
     public static List<Map<String, Object>> postToURL(String url, String payload, HttpClient httpClient) throws RuntimeException, UnsupportedEncodingException {
